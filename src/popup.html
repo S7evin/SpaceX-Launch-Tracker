@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>SpaceX Launch Tracker</title>
+  <!-- Google Fonts for Hanken Grotesk and JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="popup.css">
+</head>
+<body>
+  <div class="app-container">
+    <!-- Header -->
+    <header class="app-header">
+      <div class="brand">
+        <svg class="brand-icon" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="Rocket-Launch--Streamline-Sharp-Material">
+          <path fill="currentColor" d="m4.675 10.22495 2.65 1.125c0.3 -0.6 0.62085 -1.19165 0.9625 -1.775 0.34165 -0.58335 0.70415 -1.14165 1.0875 -1.675l-1.975 -0.4 -2.725 2.725Zm3.85 2.025 3.325 3.325c0.95 -0.43335 1.84165 -0.925 2.675 -1.475 0.83335 -0.55 1.50835 -1.08335 2.025 -1.6 1.35 -1.35 2.34165 -2.73335 2.975 -4.15 0.63335 -1.41665 0.975 -3.01665 1.025 -4.8 -1.78335 0.05 -3.38335 0.391665 -4.8 1.025 -1.41665 0.63335 -2.8 1.625 -4.15 2.975 -0.51665 0.51665 -1.05 1.19165 -1.6 2.025 -0.55 0.83335 -1.04165 1.725 -1.475 2.675Zm5.725 -2.4c-0.33335 -0.33335 -0.5 -0.74585 -0.5 -1.2375 0 -0.49165 0.16665 -0.90415 0.5 -1.2375 0.33335 -0.33335 0.74585 -0.5 1.2375 -0.5 0.49165 0 0.90415 0.16665 1.2375 0.5 0.33335 0.33335 0.5 0.74585 0.5 1.2375 0 0.49165 -0.16665 0.90415 -0.5 1.2375 -0.33335 0.33335 -0.74585 0.5 -1.2375 0.5 -0.49165 0 -0.90415 -0.16665 -1.2375 -0.5Zm-0.375 9.575 2.725 -2.725 -0.4 -1.975c-0.53335 0.38335 -1.09165 0.74585 -1.675 1.0875 -0.58335 0.34165 -1.175 0.6625 -1.775 0.9625l1.125 2.65Zm8.15 -17.35c0.15 2.266665 -0.13335 4.33335 -0.85 6.2s-1.9 3.625 -3.55 5.275l-0.05 0.05 -0.05 0.05 0.55 2.75c0.05 0.25 0.0375 0.49165 -0.0375 0.725s-0.20415 0.44165 -0.3875 0.625l-4.275 4.3 -2.125 -4.95 -4.25 -4.25 -4.95 -2.125 4.3 -4.275c0.18335 -0.18335 0.39165 -0.3125 0.625 -0.3875 0.23335 -0.075 0.475 -0.0875 0.725 -0.0375l2.75 0.55c0.01665 -0.01665 0.03335 -0.02915 0.05 -0.0375 0.01665 -0.00835 0.03335 -0.02085 0.05 -0.0375 1.65 -1.65 3.40835 -2.8375 5.275 -3.5625 1.86665 -0.725 3.93335 -1.0125 6.2 -0.8625Zm-18.3 13.8c0.583335 -0.58335 1.29585 -0.87915 2.1375 -0.8875 0.84165 -0.00835 1.55415 0.27915 2.1375 0.8625 0.58335 0.58335 0.87085 1.29585 0.8625 2.1375 -0.00835 0.84165 -0.30415 1.55415 -0.8875 2.1375 -0.43335 0.43335 -1.10415 0.79165 -2.0125 1.075 -0.90835 0.28335 -2.270835 0.55 -4.0875 0.8 0.25 -1.81665 0.5125 -3.18335 0.7875 -4.1 0.275 -0.91665 0.629165 -1.59165 1.0625 -2.025Zm1.05 1.075c-0.233335 0.25 -0.441665 0.64165 -0.625 1.175 -0.183335 0.53335 -0.341665 1.21665 -0.475 2.05 0.833335 -0.13335 1.51665 -0.29165 2.05 -0.475 0.53335 -0.18335 0.925 -0.39165 1.175 -0.625 0.31665 -0.28335 0.47915 -0.6375 0.4875 -1.0625 0.00835 -0.425 -0.1375 -0.79585 -0.4375 -1.1125 -0.31665 -0.3 -0.6875 -0.44585 -1.1125 -0.4375 -0.425 0.00835 -0.77915 0.17085 -1.0625 0.4875Z" stroke-width="0.5"></path>
+        </svg>
+        <h1 class="brand-title">SpaceX Launch Tracker</h1>
+      </div>
+      <button id="refresh-btn" class="icon-button" title="Refresh data">
+        <svg class="refresh-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+          <path d="M21.5 2v6h-6M21.34 15.57a10 10 0 1 1-.57-8.38l5.67-5.67"></path>
+        </svg>
+      </button>
+    </header>
+
+    <!-- Cache / Offline Banner -->
+    <div id="cache-banner" class="banner hidden">
+      <svg class="banner-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <circle cx="12" cy="12" r="10"></circle>
+        <line x1="12" y1="8" x2="12" y2="12"></line>
+        <line x1="12" y1="16" x2="12.01" y2="16"></line>
+      </svg>
+      <div class="banner-text">
+        <span class="banner-title">Viewing cached data</span>
+        <span id="cache-time" class="banner-subtitle">Due to API rate limit</span>
+      </div>
+    </div>
+
+    <!-- Main Content Area -->
+    <main class="app-main">
+      <!-- Loading State -->
+      <div id="loader" class="state-container">
+        <div class="spinner"></div>
+        <p class="state-text">Fetching launch telemetry...</p>
+      </div>
+
+      <!-- Error State -->
+      <div id="error-container" class="state-container hidden">
+        <div class="error-icon">!</div>
+        <p id="error-message" class="state-text">Failed to retrieve launch details.</p>
+        <button id="retry-btn" class="btn btn-secondary">Retry</button>
+      </div>
+
+      <!-- Dashboard View (Hidden by default, shown when data loaded) -->
+      <div id="dashboard" class="hidden">
+        <!-- In-Progress/Completed Launches Section -->
+        <section class="list-section" id="in-progress-section">
+          <button class="section-toggle-btn" id="in-progress-toggle" aria-expanded="false">
+            <span class="section-title" id="in-progress-title-text">LAUNCHES IN PROGRESS/COMPLETED</span>
+            <svg class="toggle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </button>
+          <div id="in-progress-list" class="upcoming-list collapsed">
+            <!-- Items injected dynamically -->
+          </div>
+        </section>
+
+        <!-- Next Launch Section (Hero Card) -->
+        <section class="hero-section">
+          <div class="hero-header">
+            <div class="hero-label">
+              <span class="pulse-dot"></span>
+              NEXT MISSION
+            </div>
+            <span id="next-launch-status" class="status-badge hidden"></span>
+          </div>
+          
+          <h2 id="next-mission-name" class="hero-mission-name">Falcon 9 | Starlink</h2>
+          
+          <!-- Countdown Timer -->
+          <div class="countdown-container">
+            <div class="countdown-unit">
+              <span id="countdown-days" class="countdown-val">00</span>
+              <span class="countdown-label">DAYS</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-unit">
+              <span id="countdown-hours" class="countdown-val">00</span>
+              <span class="countdown-label">HOURS</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-unit">
+              <span id="countdown-minutes" class="countdown-val">00</span>
+              <span class="countdown-label">MINS</span>
+            </div>
+            <div class="countdown-separator">:</div>
+            <div class="countdown-unit">
+              <span id="countdown-seconds" class="countdown-val">00</span>
+              <span class="countdown-label">SECS</span>
+            </div>
+          </div>
+
+          <div class="hero-details">
+            <div class="detail-row">
+              <span class="detail-icon">
+                <svg class="rocket-icon-details" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" id="Rocket--Streamline-Sharp-Material">
+                  <path fill="currentColor" d="m5.5 19.8 2.65 -1.07495c-0.21665 -0.63335 -0.40415 -1.27505 -0.5625 -1.92505 -0.15835 -0.65 -0.29585 -1.3083 -0.4125 -1.975L5.5 15.95v3.85Zm4.15 -1.3h4.7c0.36665 -0.9833 0.65 -1.9625 0.85 -2.9375 0.2 -0.975 0.3 -1.82915 0.3 -2.5625 0 -1.91665 -0.275 -3.6 -0.825 -5.05 -0.55 -1.45 -1.44165 -2.825 -2.675 -4.124975C10.76665 5.125 9.875 6.5 9.325 7.95 8.775 9.4 8.5 11.08335 8.5 13c0 0.73335 0.1 1.5875 0.3 2.5625 0.2 0.975 0.48335 1.9542 0.85 2.9375ZM12 12.75c-0.48335 0 -0.89585 -0.1708 -1.2375 -0.5125 -0.34165 -0.34165 -0.5125 -0.75415 -0.5125 -1.2375 0 -0.4833 0.17085 -0.8958 0.5125 -1.2375 0.34165 -0.34165 0.75415 -0.5125 1.2375 -0.5125 0.48335 0 0.89585 0.17085 1.2375 0.5125 0.34165 0.3417 0.5125 0.7542 0.5125 1.2375 0 0.48335 -0.17085 0.89585 -0.5125 1.2375 -0.34165 0.3417 -0.75415 0.5125 -1.2375 0.5125Zm6.5 7.05v-3.85l-1.675 -1.125c-0.11665 0.6667 -0.25415 1.325 -0.4125 1.975 -0.15835 0.65 -0.34585 1.2917 -0.5625 1.92505L18.5 19.8ZM12 1.775025c1.7 1.5 2.95835 3.1625 3.775 4.987475C16.59165 8.5875 17 10.6667 17 13v0.125l2.325 1.575c0.21665 0.13335 0.38335 0.30835 0.5 0.525 0.11665 0.2167 0.175 0.45 0.175 0.7V22l-5 -2H9L4 22V15.925c0 -0.25 0.058335 -0.4833 0.175 -0.7 0.116665 -0.21665 0.283335 -0.39165 0.5 -0.525L7 13.125V13c0 -2.3333 0.40835 -4.4125 1.225 -6.2375C9.04165 4.937525 10.3 3.275025 12 1.775025Z" stroke-width="0.5"></path>
+                </svg>
+              </span>
+              <div class="detail-info">
+                <span class="detail-label">Rocket</span>
+                <span id="next-rocket-name" class="detail-value">Falcon 9 Block 5</span>
+              </div>
+            </div>
+            
+            <div class="detail-row">
+              <span class="detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
+              </span>
+              <div class="detail-info">
+                <span class="detail-label">Launch Pad</span>
+                <span id="next-launch-pad" class="detail-value">SLC-40, Cape Canaveral SFS</span>
+              </div>
+            </div>
+
+            <div class="detail-row">
+              <span class="detail-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect><line x1="16" y1="2" x2="16" y2="6"></line><line x1="8" y1="2" x2="8" y2="6"></line><line x1="3" y1="10" x2="21" y2="10"></line></svg>
+              </span>
+              <div class="detail-info">
+                <span class="detail-label">Date & Time (Local)</span>
+                <span id="next-launch-date" class="detail-value">June 3, 2026 at 08:02 AM</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- Upcoming Launches List -->
+        <section class="list-section">
+          <h3 class="section-title">Upcoming Missions</h3>
+          <div id="upcoming-list" class="upcoming-list">
+            <!-- Items injected dynamically -->
+          </div>
+        </section>
+      </div>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="app-footer">
+      <span>Data provided by LaunchLibrary API v2.3.0</span>
+    </footer>
+  </div>
+
+  <script src="popup.js"></script>
+</body>
+</html>
