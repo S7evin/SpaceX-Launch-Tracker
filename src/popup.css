@@ -485,7 +485,9 @@ body {
 
 /* Footer styling */
 .app-footer {
-  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   padding: 14px 20px;
   border-top: 1px solid var(--border);
   color: var(--text-dark);
@@ -493,6 +495,23 @@ body {
   font-size: 10px;
   font-weight: 400;
   background-color: rgba(0, 0, 0, 0.4);
+}
+
+.footer-github-link {
+  color: var(--text-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+}
+
+.footer-github-link:hover {
+  color: var(--accent);
+}
+
+.footer-github-icon {
+  width: 14px;
+  height: 14px;
 }
 
 /* Utilities */
