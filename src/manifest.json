@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "SpaceX Launch Tracker",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Track upcoming SpaceX launches with a real-time countdown, rocket types, and launch locations.",
   "permissions": [
     "storage"
